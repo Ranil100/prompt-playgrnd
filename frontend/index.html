@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Playground</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <main class="container">
+    <header class="hero">
+      <div class="badge">🧪 LLM EXPERIMENT LAB</div>
+      <h1>Prompt <span>Playground</span></h1>
+      <p>Compare prompting strategies on the exact same task and see which approach performs best.</p>
+    </header>
+
+    <section class="panel input-panel">
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">01 / EXPERIMENT</span>
+          <h2>Enter your task</h2>
+        </div>
+        <span id="status" class="status idle">Ready</span>
+      </div>
+
+      <textarea id="taskInput" placeholder="Example: Summarize this email and list the action items: ..."></textarea>
+
+      <div class="controls">
+        <label>
+          Temperature
+          <input id="temperature" type="range" min="0" max="1" step="0.1" value="0.3" />
+          <span id="tempValue">0.3</span>
+        </label>
+        <button id="runBtn" class="primary-btn">Run Experiment <span>→</span></button>
+      </div>
+
+      <div class="examples">
+        <span>Try:</span>
+        <button data-example="Summarize this email and list the action items: Hi Sarah, our client meeting has moved from Friday to Monday at 10 AM. Please review the proposal before the call and send the updated pricing sheet to the client.">Email summary</button>
+        <button data-example="Explain why regular exercise is useful for productivity in simple language for a college student.">Explanation</button>
+        <button data-example="Turn these notes into a clear project plan: build login page, connect API, test authentication, deploy frontend.">Project plan</button>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="results-section hidden">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">02 / RESULTS</span>
+          <h2>Prompt comparison</h2>
+        </div>
+        <div id="winnerBadge" class="winner-badge"></div>
+      </div>
+
+      <div id="resultGrid" class="result-grid"></div>
+
+      <div class="evaluation panel">
+        <div>
+          <span class="eyebrow">03 / EVALUATION</span>
+          <h2>Experiment verdict</h2>
+        </div>
+        <p id="winnerReason"></p>
+      </div>
+    </section>
+
+    <footer>
+      <span>Prompt Playground</span>
+      <span>Zero-shot · Few-shot · Structured prompting</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
